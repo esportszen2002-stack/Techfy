@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resize — Techfy Image Tools</title>
+  <meta name="description" content="Resize images quickly in your browser. Adjust width/height or scale, preview and download." />
+  <link rel="stylesheet" href="/styles/base.css">
+  <style>
+    .tool-main{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+    .panel{background:#fff;padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(16,24,40,0.04);flex:1;min-width:280px}
+    .preview-canvas{width:100%;background:#f6f8fb;border-radius:8px}
+    .controls label{display:block;margin-bottom:8px}
+    .row{display:flex;gap:8px;align-items:center}
+    .btn{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;border:none;cursor:pointer}
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="container"><a class="brand" href="/">Techfy</a></div></header>
+  <main class="container">
+    <h1>Resize Image</h1>
+    <div class="tool-main">
+      <div class="panel controls">
+        <label>Select image
+          <input id="file" type="file" accept="image/*">
+        </label>
+        <div class="row">
+          <label style="min-width:70px">Width (px)</label>
+          <input id="widthInput" type="number" min="1" placeholder="px" style="flex:1">
+        </div>
+        <div class="row" style="margin-top:8px">
+          <label style="min-width:70px">Quality</label>
+          <input id="quality" type="range" min="10" max="100" value="90" style="flex:1">
+          <span id="qLabel">90%</span>
+        </div>
+        <div style="margin-top:12px">
+          <button id="applyBtn" class="btn">Apply & Preview</button>
+          <a id="downloadLink" style="display:none;margin-left:8px" class="btn">Download</a>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Preview</h3>
+        <canvas id="canvas" class="preview-canvas"></canvas>
+      </div>
+    </div>
+  </main>
+
+  <script src="/tools/resize/resize.js" defer></script>
+</body>
+</html>
